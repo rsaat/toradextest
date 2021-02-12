@@ -1,0 +1,7 @@
+label: .NET Console Application
+detail: >-
+  $(terminal) Creates a minimal console application sample, based on a debian
+  container and .NET Core 3.1
+platforms:
+  - '*'
+extversion: 1.2.0
