@@ -1,0 +1,12 @@
+label: ASP.NET 3.1 Blazor Application
+detail: $(globe) Creates a minimal Blazor server application for .NET core 3.1
+description: blazorserver3.1
+tags:
+  - .net3
+properties:
+  ports:
+    common:
+      8841/tcp: '8841'
+    debug: {}
+    release: {}
+extversion: 1.2.0
