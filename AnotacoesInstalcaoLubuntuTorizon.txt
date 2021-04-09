@@ -1,0 +1,213 @@
+Adicionado imagem torizon 
+
+verifica se cabo serial ligado 
+
+lsusb 
+
+ls -l /dev/ttyUSB0  ou ls -l /dev/ttyUSB1 , etc 
+
+
+https://www.centennialsoftwaresolutions.com/post/configure-minicom-for-a-usb-to-serial-converter
+sudo usermod -a -G dialout
+
+putty 
+
+serial : /dev/ttyUSB1
+speed: 115200
+connection type: serial
+Verificar Category>Serial 
+
+serial : /dev/ttyUSB1
+speed: 115200
+Data bits: 8 
+Stop bits: 1 
+Parity: none 
+Flow: None 
+
+
+
+usando ssh inicial 
+
+user: torizon
+senha: torizon 
+
+ssh 
+user: torizon
+senha: admin 
+
+portainer
+user: admin 
+senha: 12345678
+acesso web: http://169.168.1.167:8840
+
+Versão sistema operacional 
+
+cat /etc/os-release
+
+
+Maquina Virtual Lubuntu 
+
+Instalado versão 20.04 
+
+https://linuxconfig.org/virtualbox-install-guest-additions-on-ubuntu-20-04-lts-focal-fossa
+
+instala putty 
+sudo apt install putty
+
+
+problemas video instalado display manager lightdm
+https://techpiezo.com/linux/switch-display-manager-in-ubuntu-20-04/
+
+
+https://askubuntu.com/questions/298538/copy-paste-not-working-on-ubuntu-putty
+
+
+https://linuxconfig.org/virtualbox-install-guest-additions-on-ubuntu-20-04-lts-focal-fossa
+
+https://linuxhint.com/install-peazip-linux-ubuntu/
+
+sudo apt install gdebi-core
+
+Utilitarios de Rede 
+.
+sudo apt install net-tools
+sudo apt install arp-scan
+sudo apt install ethtool
+sudo apt install curl
+
+sudo apt install nethogs
+
+
+
+Install Docker Engine on Ubuntu
+https://docs.docker.com/engine/install/ubuntu/
+
+Enable Arm emulation in your PC:
+
+sudo  docker run --rm -it --privileged torizon/binfmt
+
+Github Desktop 
+https://github.com/shiftkey/desktop
+
+
+.NET Core 
+
+sudo ln -sv /snap/dotnet-sdk/current/dotnet /usr/local/bin/dotnet
+
+criar link para funcionar no Visual Studio Code 
+
+sudo ln -sv /snap/dotnet-sdk/current/dotnet /usr/local/bin/dotnet
+
+dotnet publish -r linux-arm -o /home/admin/torizon/tests/toradextest/HelloTorizon/appconfig_0/work/HelloTorizon /home/admin/torizon/tests/toradextest/HelloTorizon/HelloTorizon.csproj
+
+
+
+Visual Studio Code 
+
+Extensões
+Instalar Toradex Torizon Support 
+Git History
+Docker 
+Python
+Jupyter  
+C# 
+
+
+
+Conexão placa toradex com ethernet USB 
+
+- Instabilidade do Lubunto na máquina virtual com interface usb simples. Utilizado TP-Link UE300 que ficou mais estável. 
+https://www.tp-link.com/br/home-networking/computer-accessory/ue300/
+
+- - Conectar conversor USB Ethernet e associar a VM do Lubuntu no Virtualbox 
+- configurar no Lubuntu na parte de Rede 
+Preferences > Advanced Network Configurations > Wired Connection 2 
+Ipv4Settings 
+Shared to Other Computers 
+
+link local => endereço 169.254.X.X
+
+Default placa  toradex com DHCP habilitado 
+
+Localizar placa toradex  
+
+Tentar comandos 
+
+arp -a 
+
+https://developer1.toradex.com/knowledge-base/basic-linux-commands#Scan_your_local_network_to_find_the_board_IP_and_MAC_address
+
+Achar nome da interface 
+
+ip link show up
+
+exemplo: 
+3: enx00011e143336: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+    link/ether 00:01:1e:14:33:36 brd ff:ff:ff:ff:ff:ff
+
+
+Usar da interface no comado arp-scan
+
+sudo arp-scan --localnet --interface=enx00011e143336
+
+
+wifi 
+
+https://kifarunix.com/connect-to-wifi-in-linux-using-nmcli-command/
+
+nmcli radio wifi
+
+habilita wifi se necessário
+nmcli radio wifi on
+
+Verifica se wifi disponível 
+nmcli dev status
+
+pontos de acesso 
+nmcli dev wifi list
+
+sudo nmcli --ask dev wifi connect  "nome ponto acesso" 
+
+nmcli dev status
+
+sudo nmcli con del "nome ponto de acesso"
+
+
+
+
+
+
+Reiniciar redes 
+
+service network-manager restart
+
+Exemplos de sites 
+
+
+docker run -d --ipc=host --rm -v /tmp:/tmp -v /dev/dri:/dev/dri -v /var/run/dbus:/var/run/dbus --device-cgroup-rule='c 226:* rmw' --shm-size="256m" --security-opt="seccomp=unconfined" --name kiosk torizon/kiosk-mode-browser-x11:$CT_TAG_KIOSK_MODE_BROWSER_X11 --browser-mode --virtual-keyboard https://demos.telerik.com/blazor-dashboard-app/dashboard
+
+
+
+http://10.42.0.52:8841/
+
+https://ej2.syncfusion.com/showcase/angular/healthtracker/src/#/dashboard
+
+https://www.fusioncharts.com/demos/dashboards/smart-energy-monitoring-dashboard/
+
+https://demos.telerik.com/blazor-dashboard-app/dashboard
+
+https://telerik.github.io/kendo-angular/integration-pwa-material/#/issues
+
+admin templates 
+
+https://www.enableds.com/products/sticky37/component-sidebars.html
+
+https://fury.visurel.com/
+
+scada demo 
+
+https://onlinedemo.inductiveautomation.com/data/perspective/client/OnlineDemo/apps/oilgas/
+
+https://onlinedemo.inductiveautomation.com/data/perspective/client/OnlineDemo/apps/water/Dashboard
+
+https://angular.airui.cloud/#/dashboard/analytics
