@@ -1,4 +1,44 @@
+Resetar placa 
+https://developer.toradex.com/knowledge-base/load-toradex-easy-installer#Enter_recovery_mode-6
+
+
+Download do Toradex Easy installer e descompactar pasta computador 
+
+Ligar cabo micro USB no computador 
+
+Dar boot com JP1 em curto. Pode usar um clip de papel 
+
+Rodar o bat do download. 
+
+OBS: Versão 1.8 não apareceu Torizon Core. Usado versão 2.0 beta. 
+
+
+Compartilhar a internet com o cabo do USB-Ethernet. No Lubunto escolher a opção shared to other computers. 
+No Windows deve procurar opção de compartilhamento. 
+
+Instalar TorizonCore with evaluation containers. 
+
 Adicionado imagem torizon 
+https://developer.toradex.com/software/torizon#tab-documentation
+
+
+Trocar senha padrão do SSH usando cabo serial ou descobrindo ip da placa. 
+
+No VS code em devices adicionar novo dispositivo via rede
+Devices  +   (Pode dar um reboot na placa) 
+
+
+
+Calibração do Touchscreen 
+https://developer.toradex.com/knowledge-base/touch-screen-calibration-torizon
+
+docker stop $(docker ps -q)
+docker run -ti --rm --privileged -v /dev:/dev -v /run/udev/:/run/udev/ -v /etc/udev/rules.d:/etc/udev/rules.d torizon/weston-touch-calibrator:$CT_TAG_WESTON_TOUCH_CALIBRATOR
+
+
+
+Usando Lubuntu 
+
 
 verifica se cabo serial ligado 
 
@@ -183,12 +223,15 @@ service network-manager restart
 
 Exemplos de sites 
 
+clicar Ctrl+Shift+V para colar no PuTTY
 
-docker run -d --ipc=host --rm -v /tmp:/tmp -v /dev/dri:/dev/dri -v /var/run/dbus:/var/run/dbus --device-cgroup-rule='c 226:* rmw' --shm-size="256m" --security-opt="seccomp=unconfined" --name kiosk torizon/kiosk-mode-browser-x11:$CT_TAG_KIOSK_MODE_BROWSER_X11 --browser-mode --virtual-keyboard https://demos.telerik.com/blazor-dashboard-app/dashboard
+docker run -d --ipc=host --rm -v /tmp:/tmp -v /dev/dri:/dev/dri -v /var/run/dbus:/var/run/dbus --device-cgroup-rule='c 226:* rmw' --shm-size="256m" --security-opt="seccomp=unconfined" --name kiosk torizon/kiosk-mode-browser-x11:$CT_TAG_KIOSK_MODE_BROWSER_X11 --browser-mode --virtual-keyboard http://10.42.0.109:8841/
 
 
 
 http://10.42.0.52:8841/
+
+http://10.42.0.109:8841/
 
 https://ej2.syncfusion.com/showcase/angular/healthtracker/src/#/dashboard
 
